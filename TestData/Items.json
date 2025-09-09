@@ -1,0 +1,59 @@
+{
+  "Items": [
+    {
+      "ItemDetails": {
+        "Item": "00T-Shirt001",
+        "UPCCode": "123456789012",
+        "ManufacturePart": "MFG-TSHIRT-001",
+        "Inventory": "150",
+        "ItemDescription": "Men's Cotton T-Shirt - Blue",
+        "Notes": "Best seller in summer season",
+        "ItemType": "Inventory",
+        "Status": "Active",
+        "Taxed": "Yes",
+        "CountryOfOrigin": "India",
+        "ItemColor": "Blue",
+        "ReOrderPoint": "50",
+        "Supplier": "ABC Textiles",
+        "Brand": "CoolWear",
+        "PreferredShippingCarrier": "FedEx",
+        "PreferredShippingMethod": "FedEx Home Delivery®",
+        "USPSPackageType": "Flat Rate Envelope",
+        "PictureUrl": "https://example.com/images/tshirt001.png",
+        "Gender": "Male",
+        "Size": "L",
+        "SellerCost": "10.00",
+        "Price": "19.99",
+        "UPSSurepost": "Yes"
+      },
+      "ItemDimensionsDetails": {
+        "ItemWeight": "0.5",
+        "ItemWeightUnits": "Kg",
+        "ItemLength": "30",
+        "ItemLengthUnits": "Foot",
+        "ItemWidth": "25",
+        "ItemWidthUnits": "Yard",
+        "ItemHeight": "2",
+        "ItemHeightUnits": "Foot"
+      },
+      "ItemPackagingDetails": {
+        "PackageLength": "32",
+        "PackageLengthUnits": "Inch",
+        "PackageWidth": "27",
+        "PackageWidthUnits": "Inch",
+        "PackageHeight": "3",
+        "PackageHeightUnits": "Inch",
+        "ItemVolume": "2400",
+        "ItemVolumeUnits": "Cubic Inches",
+        "PackageWeight": "0.6",
+        "PackageWeightUnits": "Kg",
+        "QuantityinStock": "",
+        "MinOrderQty": "5",
+        "NumberofItemsPackage": "1"
+      },
+      "WarehouseDetails": {
+        "Quantity": "150"
+      }
+    }
+  ]
+}
