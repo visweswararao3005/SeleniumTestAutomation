@@ -1,0 +1,115 @@
+﻿using System;
+using System.Data.SqlClient;
+using System.IO;
+
+namespace LoginAutomation.Tests.Utils
+{
+    public static class Logger
+    {
+        private static readonly string logDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+        private static readonly string logFile = Path.Combine(logDirectory, $"Log_{DateTime.Now:dd_MM_yyyy}.txt");
+
+        static Logger()
+        {
+            // Ensure "Logs" folder exists
+            if (!Directory.Exists(logDirectory))
+            {
+                Directory.CreateDirectory(logDirectory);
+            }
+        }
+
+        private static void WriteLog(string level, string message, ConsoleColor color)
+        {
+            string logEntry = $"[{level}] {DateTime.Now:HH:mm:ss} - {message}";
+
+            // Write to console
+            Console.ForegroundColor = color;
+            Console.WriteLine(logEntry);
+            Console.ResetColor();
+
+            // Write to file (append mode)
+            File.AppendAllText(logFile, logEntry + Environment.NewLine);
+        }
+
+        public static void Info(string message)
+        {
+            WriteLog("INFO", message, ConsoleColor.Green);
+        }
+
+        public static void Error(string message)
+        {
+            WriteLog("ERROR", message, ConsoleColor.Red);
+        }
+
+        public static void Warn(string message)
+        {
+            WriteLog("WARN", message, ConsoleColor.Yellow);
+        }
+    }
+
+    public static class StatusLogger
+    {
+        private static readonly string LogDir = Path.Combine(AppContext.BaseDirectory, "Status Logs");
+        private static readonly string LogFile = Path.Combine(LogDir, $"Status_{DateTime.Now:dd_MM_yyyy}.txt");
+        private static readonly object _lock = new object();
+        private static bool _runtimeLogged = false;
+
+        static StatusLogger()
+        {
+            if (!Directory.Exists(LogDir))
+                Directory.CreateDirectory(LogDir);
+        }
+
+        public static void LogRuntimeStart()
+        {
+            lock (_lock)
+            {
+                if (!_runtimeLogged) // avoid duplicate runtime logs in same run
+                {
+                    File.AppendAllText(LogFile, $"\n\nRuntime Start: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
+                    File.AppendAllText(LogFile, $"Client  -  StartTime  -  Status  -  TimeTaken  -  TestName\n");
+                    _runtimeLogged = true;
+                }
+            }
+        }
+
+        public static void LogTestStatus(string testName, DateTime startTime, DateTime endTime, string status, string ClientName)
+        {
+            lock (_lock)
+            {
+                var timeTaken = endTime - startTime;
+                string line = $"{ClientName}  -  {startTime:HH:mm:ss}  -  {status}  -  {timeTaken.TotalSeconds:F2}s  -  {testName}";
+                File.AppendAllText(LogFile, line + Environment.NewLine);
+            }
+        }
+    }
+
+    public static class DbLogger
+    {
+        private static readonly string _connString = Config.Get("AppSettings:DBstring");
+
+        public static void LogTestResult(string testId,string testName, DateTime start, DateTime end, string status,string ClientName)
+        { 
+            var duration = (int)(end - start).TotalSeconds;
+
+            using (var conn = new SqlConnection(_connString))
+            using (var cmd = conn.CreateCommand())
+            {
+                cmd.CommandText = @"INSERT INTO TestRunResults 
+                                (TestID, TestName, StartTime, EndTime, DurationSeconds, Status, ClientName) 
+                                VALUES (@TestID,@TestName, @StartTime, @EndTime, @Duration, @Status,@ClientName)";
+                cmd.Parameters.AddWithValue("@TestID", testId);
+                cmd.Parameters.AddWithValue("@TestName", testName);
+                cmd.Parameters.AddWithValue("@StartTime", start);
+                cmd.Parameters.AddWithValue("@EndTime", end);
+                cmd.Parameters.AddWithValue("@Duration", duration);
+                cmd.Parameters.AddWithValue("@Status", status);
+                cmd.Parameters.AddWithValue("@ClientName", ClientName);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
+}
