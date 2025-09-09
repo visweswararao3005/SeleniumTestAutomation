@@ -20,7 +20,7 @@ namespace LoginAutomation.Tests.Tests
     [TestFixture]
     public class LoginTests : BaseTest
     {
-        private string L(string name) => Config.Get($"Locators:{name}");
+        private readonly Dictionary<string, string> L = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Config.Get("AppSettings:UIDataPointsFile")));
         private static IEnumerable<LoginTestCase> LoadCases()
         {
             string location = Config.Get("AppSettings:baseFolder");
@@ -81,7 +81,7 @@ namespace LoginAutomation.Tests.Tests
                         break;
 
                     case "validation":
-                        string validationMsg = page.GetvalidationMessage();
+                        string validationMsg = page.GetValidationMessage();
                         Logger.Info($"Captured validation message: {validationMsg}");
 
                         Assert.IsTrue(validationMsg.Contains("required") || validationMsg.Contains("Invalid"),
@@ -148,7 +148,7 @@ namespace LoginAutomation.Tests.Tests
                 int time = 3000;
                 Thread.Sleep(time);
                 Logger.Info("Navigating to Customers page...");
-                _driver.FindElement(By.PartialLinkText(L("subMenu_2_4"))).Click();
+                _driver.FindElement(By.PartialLinkText(L["subMenu_2_4"])).Click();
                 Thread.Sleep(time);
 
                 // Step 6: Read Customers.json
@@ -173,32 +173,32 @@ namespace LoginAutomation.Tests.Tests
                                 $"SalesRep='{details.SalesRep}', " +
                                 $"PT='{details.PT000872}'");
 
-                    _driver.FindElement(By.Id(L("AddCustomerButton"))).Click();
+                    _driver.FindElement(By.Id(L["AddCustomerButton"])).Click();
                     Thread.Sleep(time);
 
 
                     // Fill Customer Details
-                    _driver.FindElement(By.Id(L("Customer_customer_name"))).SendKeys(details.CustomerName);
-                    _driver.FindElement(By.Id(L("Customer_company_name"))).SendKeys(details.CompanyName);
-                    _driver.FindElement(By.Id(L("Customer_customer_phone_number"))).SendKeys(details.CustomerPhoneNumber);
-                    _driver.FindElement(By.Id(L("Customer_customer_email_address"))).SendKeys(details.CustomerEmailAddress);
-                    _driver.FindElement(By.Id(L("Customer_contact_first_name"))).SendKeys(details.ContactFirstName);
-                    _driver.FindElement(By.Id(L("Customer_contact_last_name"))).SendKeys(details.ContactLastName);
+                    _driver.FindElement(By.Id(L["Customer_customer_name"])).SendKeys(details.CustomerName);
+                    _driver.FindElement(By.Id(L["Customer_company_name"])).SendKeys(details.CompanyName);
+                    _driver.FindElement(By.Id(L["Customer_customer_phone_number"])).SendKeys(details.CustomerPhoneNumber);
+                    _driver.FindElement(By.Id(L["Customer_customer_email_address"])).SendKeys(details.CustomerEmailAddress);
+                    _driver.FindElement(By.Id(L["Customer_contact_first_name"])).SendKeys(details.ContactFirstName);
+                    _driver.FindElement(By.Id(L["Customer_contact_last_name"])).SendKeys(details.ContactLastName);
 
                     // Dropdown: SalesRep
                     Logger.Info($"{customerIndex} Selecting SalesRep='{details.SalesRep}'");
-                    IWebElement salesRepDropdown = Driver.FindElement(By.Id(L("Customer_sales_rep")));
+                    IWebElement salesRepDropdown = Driver.FindElement(By.Id(L["Customer_sales_rep"]));
                     new SelectElement(salesRepDropdown).SelectByText(details.SalesRep);
 
                     // Dropdown: PT
                     Logger.Info($"{customerIndex} Selecting PT='{details.PT000872}'");
-                    IWebElement ptDropdown = Driver.FindElement(By.Id(L("Customer_pt000872")));
+                    IWebElement ptDropdown = Driver.FindElement(By.Id(L["Customer_pt000872"]));
                     new SelectElement(ptDropdown).SelectByText(details.PT000872);
 
                     // TODO: Add Billing + Shipping details here if required
 
                     Logger.Info($"{customerIndex} Saving customer...");
-                    _driver.FindElement(By.Id(L("SaveCustomerButton"))).Click();
+                    _driver.FindElement(By.Id(L["SaveCustomerButton"])).Click();
 
 
                     string error = Page.GetErrorMessage();
@@ -215,7 +215,7 @@ namespace LoginAutomation.Tests.Tests
 
                         Thread.Sleep(time);
 
-                        _driver.FindElement(By.PartialLinkText(L("subMenu_2_4"))).Click();
+                        _driver.FindElement(By.PartialLinkText(L["subMenu_2_4"])).Click();
                         Thread.Sleep(time);
                         //Assert.Fail($"Failed to add customer '{details.CustomerName}': {error}");
                     }
@@ -225,9 +225,9 @@ namespace LoginAutomation.Tests.Tests
                 // Step 8: Logout
                 Logger.Info("Logging out...");
                 Thread.Sleep(10000);
-                _driver.FindElement(By.Id(L("LogoutButton"))).Click();
+                _driver.FindElement(By.Id(L["LogoutButton"])).Click();
                 Thread.Sleep(time);
-                _driver.FindElement(By.Id(L("YesLogout"))).Click();
+                _driver.FindElement(By.Id(L["YesLogout"])).Click();
                 Thread.Sleep(time);
 
                 status = "Pass";
@@ -287,7 +287,7 @@ namespace LoginAutomation.Tests.Tests
                 int time = 3000;
                 Thread.Sleep(time);
                 Logger.Info("Navigating to Items page...");
-                _driver.FindElement(By.PartialLinkText(L("subMenu_2_3"))).Click();
+                _driver.FindElement(By.PartialLinkText(L["subMenu_2_3"])).Click();
                 Thread.Sleep(time);
 
                 // Step 4: Read Customers.json
@@ -314,71 +314,71 @@ namespace LoginAutomation.Tests.Tests
                                 $"Inventory='{details.Inventory}', " +
                                 $"ItemDescription='{details.ItemDescription}' Soon....");
 
-                    _driver.FindElement(By.Id(L("AddItemButton"))).Click();
+                    _driver.FindElement(By.Id(L["AddItemButton"])).Click();
                     Thread.Sleep(time);
 
                     // Fill Item Details
-                    _driver.FindElement(By.Id(L("ItemDetails_item_number"))).SendKeys(details.Item);
-                    _driver.FindElement(By.Id(L("ItemDetails_upc_code"))).SendKeys(details.UPCCode);
-                    _driver.FindElement(By.Id(L("ItemDetails_manufacture_part_number"))).SendKeys(details.ManufacturePart);
-                    _driver.FindElement(By.Id(L("ItemDetails_inventory_number"))).SendKeys(details.Inventory);
-                    _driver.FindElement(By.Id(L("ItemDetails_item_description"))).SendKeys(details.ItemDescription);
-                    _driver.FindElement(By.Id(L("ItemDetails_notes"))).SendKeys(details.Notes);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_item_type")))).SelectByText(details.ItemType);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_status")))).SelectByText(details.Status);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_taxed")))).SelectByText(details.Taxed);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_country_of_origin")))).SelectByText(details.CountryOfOrigin);
-                    _driver.FindElement(By.Id(L("ItemDetails_item_color"))).SendKeys(details.ItemColor);
-                    _driver.FindElement(By.Id(L("ItemDetails_re_order_point"))).SendKeys(details.ReOrderPoint);
-                    _driver.FindElement(By.Id(L("ItemDetails_supplier"))).SendKeys(details.Supplier);
-                    _driver.FindElement(By.Id(L("ItemDetails_brand"))).SendKeys(details.Brand);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_preferred_shipping_carrier")))).SelectByText(details.PreferredShippingCarrier);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_preferred_shipping_method")))).SelectByText(details.PreferredShippingMethod);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_usps_package_type")))).SelectByText(details.USPSPackageType);
-                    _driver.FindElement(By.Id(L("ItemDetails_picture_url"))).SendKeys(details.PictureUrl);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_gender")))).SelectByText(details.Gender);
-                    _driver.FindElement(By.Id(L("ItemDetails_size"))).SendKeys(details.Size);
-                    _driver.FindElement(By.Id(L("ItemDetails_seller_cost"))).SendKeys(details.SellerCost);
-                    _driver.FindElement(By.Id(L("ItemDetails_price"))).SendKeys(details.Price);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDetails_ups_surepost")))).SelectByText(details.UPSSurepost);
+                    _driver.FindElement(By.Id(L["ItemDetails_item_number"])).SendKeys(details.Item);
+                    _driver.FindElement(By.Id(L["ItemDetails_upc_code"])).SendKeys(details.UPCCode);
+                    _driver.FindElement(By.Id(L["ItemDetails_manufacture_part_number"])).SendKeys(details.ManufacturePart);
+                    _driver.FindElement(By.Id(L["ItemDetails_inventory_number"])).SendKeys(details.Inventory);
+                    _driver.FindElement(By.Id(L["ItemDetails_item_description"])).SendKeys(details.ItemDescription);
+                    _driver.FindElement(By.Id(L["ItemDetails_notes"])).SendKeys(details.Notes);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_item_type"]))).SelectByText(details.ItemType);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_status"]))).SelectByText(details.Status);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_taxed"]))).SelectByText(details.Taxed);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_country_of_origin"]))).SelectByText(details.CountryOfOrigin);
+                    _driver.FindElement(By.Id(L["ItemDetails_item_color"])).SendKeys(details.ItemColor);
+                    _driver.FindElement(By.Id(L["ItemDetails_re_order_point"])).SendKeys(details.ReOrderPoint);
+                    _driver.FindElement(By.Id(L["ItemDetails_supplier"])).SendKeys(details.Supplier);
+                    _driver.FindElement(By.Id(L["ItemDetails_brand"])).SendKeys(details.Brand);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_preferred_shipping_carrier"]))).SelectByText(details.PreferredShippingCarrier);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_preferred_shipping_method"]))).SelectByText(details.PreferredShippingMethod);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_usps_package_type"]))).SelectByText(details.USPSPackageType);
+                    _driver.FindElement(By.Id(L["ItemDetails_picture_url"])).SendKeys(details.PictureUrl);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_gender"]))).SelectByText(details.Gender);
+                    _driver.FindElement(By.Id(L["ItemDetails_size"])).SendKeys(details.Size);
+                    _driver.FindElement(By.Id(L["ItemDetails_seller_cost"])).SendKeys(details.SellerCost);
+                    _driver.FindElement(By.Id(L["ItemDetails_price"])).SendKeys(details.Price);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDetails_ups_surepost"]))).SelectByText(details.UPSSurepost);
                     Thread.Sleep(time);
 
                     // Fill Item Dimensions
-                    _driver.FindElement(By.Id(L("ItemDimensionsDetails_item_weight_lbs"))).SendKeys(dim.ItemWeight);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDimensionsDetails_item_weight_lbs_Unit")))).SelectByText(dim.ItemWeightUnits);
-                    _driver.FindElement(By.Id(L("ItemDimensionsDetails_item_length_inches"))).SendKeys(dim.ItemLength);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDimensionsDetails_item_length_inches_Unit")))).SelectByText(dim.ItemLengthUnits);
-                    _driver.FindElement(By.Id(L("ItemDimensionsDetails_item_width_inches"))).SendKeys(dim.ItemWidth);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDimensionsDetails_item_width_inches_Unit")))).SelectByText(dim.ItemWidthUnits);
-                   _driver.FindElement(By.Id(L("ItemDimensionsDetails_item_height_inches"))).SendKeys(dim.ItemHeight);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemDimensionsDetails_item_height_inches_Unit")))).SelectByText(dim.ItemHeightUnits);
+                    _driver.FindElement(By.Id(L["ItemDimensionsDetails_item_weight_lbs"])).SendKeys(dim.ItemWeight);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDimensionsDetails_item_weight_lbs_Unit"]))).SelectByText(dim.ItemWeightUnits);
+                    _driver.FindElement(By.Id(L["ItemDimensionsDetails_item_length_inches"])).SendKeys(dim.ItemLength);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDimensionsDetails_item_length_inches_Unit"]))).SelectByText(dim.ItemLengthUnits);
+                    _driver.FindElement(By.Id(L["ItemDimensionsDetails_item_width_inches"])).SendKeys(dim.ItemWidth);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDimensionsDetails_item_width_inches_Unit"]))).SelectByText(dim.ItemWidthUnits);
+                   _driver.FindElement(By.Id(L["ItemDimensionsDetails_item_height_inches"])).SendKeys(dim.ItemHeight);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemDimensionsDetails_item_height_inches_Unit"]))).SelectByText(dim.ItemHeightUnits);
                     Thread.Sleep(time);
 
                     // Fill Item Packaging
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_package_length"))).SendKeys(pack.PackageLength);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_package_length_Unit")))).SelectByText(pack.PackageLengthUnits);
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_package_width"))).SendKeys(pack.PackageWidth);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_package_width_Unit")))).SelectByText(pack.PackageWidthUnits);
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_package_height"))).SendKeys(pack.PackageHeight);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_package_height_Unit")))).SelectByText(pack.PackageHeightUnits);
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_item_volume"))).SendKeys(pack.ItemVolume);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_item_volume_Unit")))).SelectByText(pack.ItemVolumeUnits);
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_package_weight"))).SendKeys(pack.PackageWeight);
-                    new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_package_weight_Unit")))).SelectByText(pack.PackageWeightUnits);
-                    //_driver.FindElement(By.Id(L("ItemPackagingDetails_quantity_in_stock"))).SendKeys(pack.QuantityinStock);
-                    //new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_quantity_in_stock_Unit")))).SelectByText(pack.QuantityinStockUnits);
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_min_order_qty"))).SendKeys(pack.MinOrderQty);
-                    //new SelectElement(Driver.FindElement(By.Id(L("ItemPackagingDetails_min_order_qty_Unit")))).SelectByText(pack.MinOrderQtyUnits);
-                    _driver.FindElement(By.Id(L("ItemPackagingDetails_number_of_items_package"))).SendKeys(pack.NumberofItemsPackage);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_package_length"])).SendKeys(pack.PackageLength);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_package_length_Unit"]))).SelectByText(pack.PackageLengthUnits);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_package_width"])).SendKeys(pack.PackageWidth);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_package_width_Unit"]))).SelectByText(pack.PackageWidthUnits);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_package_height"])).SendKeys(pack.PackageHeight);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_package_height_Unit"]))).SelectByText(pack.PackageHeightUnits);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_item_volume"])).SendKeys(pack.ItemVolume);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_item_volume_Unit"]))).SelectByText(pack.ItemVolumeUnits);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_package_weight"])).SendKeys(pack.PackageWeight);
+                    new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_package_weight_Unit"]))).SelectByText(pack.PackageWeightUnits);
+                    //_driver.FindElement(By.Id(L["ItemPackagingDetails_quantity_in_stock"])).SendKeys(pack.QuantityinStock);
+                    //new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_quantity_in_stock_Unit"]))).SelectByText(pack.QuantityinStockUnits);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_min_order_qty"])).SendKeys(pack.MinOrderQty);
+                    //new SelectElement(Driver.FindElement(By.Id(L["ItemPackagingDetails_min_order_qty_Unit"]))).SelectByText(pack.MinOrderQtyUnits);
+                    _driver.FindElement(By.Id(L["ItemPackagingDetails_number_of_items_package"])).SendKeys(pack.NumberofItemsPackage);
                     Thread.Sleep(time);
 
                     // Fill Warehouse Details
-                    //_driver.FindElement(By.XPath(L("WarehouseDetails_main_warehouse_quantity_in_stock"))).SendKeys(ware.Quantity);
+                    //_driver.FindElement(By.XPath(L["WarehouseDetails_main_warehouse_quantity_in_stock"])).SendKeys(ware.Quantity);
                     Thread.Sleep(time);
 
 
                     Logger.Info($"{itemIndex} Saving Item...");
-                    _driver.FindElement(By.Id(L("SaveItemButton"))).Click(); 
+                    _driver.FindElement(By.Id(L["SaveItemButton"])).Click(); 
                     Thread.Sleep(time);
 
                     string error = Page.GetErrorMessage();
@@ -395,7 +395,7 @@ namespace LoginAutomation.Tests.Tests
 
                         Thread.Sleep(time);
 
-                        _driver.FindElement(By.PartialLinkText(L("subMenu_2_4"))).Click();
+                        _driver.FindElement(By.PartialLinkText(L["subMenu_2_4"])).Click();
                         Thread.Sleep(time);
                         //Assert.Fail($"Failed to add customer '{details.CustomerName}': {error}");
                     }
@@ -406,9 +406,9 @@ namespace LoginAutomation.Tests.Tests
                 // Step 5: Logout
                 Logger.Info("Logging out...");
                 Thread.Sleep(10000);
-                _driver.FindElement(By.Id(L("LogoutButton"))).Click();
+                _driver.FindElement(By.Id(L["LogoutButton"])).Click();
                 Thread.Sleep(time);
-                _driver.FindElement(By.Id(L("YesLogout"))).Click();
+                _driver.FindElement(By.Id(L["YesLogout"])).Click();
                 Thread.Sleep(time);
 
                 status = "Pass";

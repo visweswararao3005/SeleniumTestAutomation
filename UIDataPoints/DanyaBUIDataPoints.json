@@ -1,0 +1,138 @@
+{
+
+  "Username": "LoginId", //id
+  "Password": "Password", //id
+  "RememberMe": "label.checkbox", //css
+  "LoginButton": "btnLogin", //id
+
+  "LogoutButton": "logout", //id
+  "YesLogout": "bot2-Msg1", //id
+  "NoLogout": "bot1-Msg1", //id
+
+
+  "Invalid": ".alert.alert-danger.alert-dismissable", //class
+
+  "UsernameValidation": "span[data-valmsg-for='LoginId']", //css
+  "PasswordValidation": "span[data-valmsg-for='Password']", //css
+
+  "mainMenu_1": "System", //LinkText
+  "subMenu_1_1": "User",
+  "subMenu_1_2": "Release",
+  "subMenu_1_3": "Outage",
+  "subMenu_1_4": "Translation",
+  "subMenu_1_5": "Event Log",
+  "subMenu_1_6": "Email Template",
+
+  "mainMenu_2": "Admin",
+  "subMenu_2_1": "Home",
+  "subMenu_2_2": "Order List",
+  "subMenu_2_3": "Item",
+  "subMenu_2_4": "Customer",
+  "subMenu_2_5": "Daily Prints",
+  "subMenu_2_6": "QuickBooks",
+  "subMenu_2_7": "Inventory Notice",
+  "subMenu_2_8": "Dashboard",
+  "subMenu_2_9": "Reports",
+  "subMenu_2_10": "Shipment Tracker",
+  "subMenu_2_11": "Order Engine Records",
+  "subMenu_2_12": "Documents", //LinkText 
+
+  //Add customer
+  "AddCustomerButton": "btnAdd", //id
+
+  "Customer_customer_name": "CustomerName",
+  "Customer_company_name": "CompanyName",
+  "Customer_customer_phone_number": "Phone",
+  "Customer_customer_email_address": "Email",
+  "Customer_contact_first_name": "FirstName",
+  "Customer_contact_last_name": "LastName",
+  "Customer_sales_rep": "SalesRep_UserId",
+  "Customer_custom_packing_list": "",
+  "Customer_payment_term": "",
+  "Customer_fedex_account_number": "",
+  "Customer_ups_customer_account_number": "",
+  "Customer_pt000872": "PackingSlipTypeEnum",
+  "Customer_retailer_id": "",
+
+  "billing_name1": "",
+  "billing_name2": "",
+  "billing_phone": "",
+  "billing_email": "",
+  "billing_address1": "",
+  "billing_address2": "",
+  "billing_country": "",
+  "billing_city": "",
+  "billing_state": "",
+  "billing_postal_code": "",
+  "billing_notes": "",
+
+  "shipping_name1": "",
+  "shipping_name2": "",
+  "shipping_phone": "",
+  "shipping_email": "",
+  "shipping_address1": "",
+  "shipping_address2": "",
+  "shipping_country": "",
+  "shipping_city": "",
+  "shipping_state": "",
+  "shipping_postal_code": "",
+  "shipping_notes": "",
+
+  "SaveCustomerButton": "btnSubmit", //id"
+
+  //Add Item
+  "AddItemButton": "btnAdd", //id"
+
+  "ItemDetails_item_number": "ItemName",
+  "ItemDetails_upc_code": "Upc",
+  "ItemDetails_manufacture_part_number": "PartNumber",
+  "ItemDetails_inventory_number": "InventoryNumber",
+  "ItemDetails_item_description": "Description",
+  "ItemDetails_notes": "Notes",
+  "ItemDetails_item_type": "ItemType",
+  "ItemDetails_status": "Status",
+  "ItemDetails_taxed": "IsTaxed",
+  "ItemDetails_country_of_origin": "CountryOfOrigin",
+  "ItemDetails_item_color": "Color",
+  "ItemDetails_re_order_point": "ReOrderPoint",
+  "ItemDetails_supplier": "Supplier",
+  "ItemDetails_brand": "Brand",
+  "ItemDetails_preferred_shipping_carrier": "PreferredShippingCarrierEnum",
+  "ItemDetails_preferred_shipping_method": "USPSServiceTypeEnum",
+  "ItemDetails_usps_package_type": "USPSPackageTypeEnum",
+  "ItemDetails_picture_url": "PictureUrl",
+  "ItemDetails_gender": "Gender",
+  "ItemDetails_size": "Size",
+  "ItemDetails_seller_cost": "SellerCost",
+  "ItemDetails_price": "Price",
+  "ItemDetails_ups_surepost": "IsUPSSurePostForOverstock",
+
+  "ItemDimensionsDetails_item_weight_lbs": "Weight",
+  "ItemDimensionsDetails_item_weight_lbs_Unit": "WeightUnits",
+  "ItemDimensionsDetails_item_length_inches": "Length",
+  "ItemDimensionsDetails_item_length_inches_Unit": "LengthUnits",
+  "ItemDimensionsDetails_item_width_inches": "Width",
+  "ItemDimensionsDetails_item_width_inches_Unit": "WidthUnits",
+  "ItemDimensionsDetails_item_height_inches": "Height",
+  "ItemDimensionsDetails_item_height_inches_Unit": "HeightUnits",
+
+  "ItemPackagingDetails_package_length": "PackageLength",
+  "ItemPackagingDetails_package_length_Unit": "PackageLengthUnits",
+  "ItemPackagingDetails_package_width": "PackageWidth",
+  "ItemPackagingDetails_package_width_Unit": "PackageWidthUnits",
+  "ItemPackagingDetails_package_height": "PackageHeight",
+  "ItemPackagingDetails_package_height_Unit": "PackageHeightUnits",
+  "ItemPackagingDetails_item_volume": "PackageVolume",
+  "ItemPackagingDetails_item_volume_Unit": "PackageVolumeUnits",
+  "ItemPackagingDetails_package_weight": "PackageWeight",
+  "ItemPackagingDetails_package_weight_Unit": "PackageWeightUnits",
+  "ItemPackagingDetails_quantity_in_stock": "QuantityInStock",
+  "ItemPackagingDetails_quantity_in_stock_Unit": "QuantityInStockUnits",
+  "ItemPackagingDetails_min_order_qty": "MinimumOrderQuantity",
+  "ItemPackagingDetails_min_order_qty_Unit": "MinimumOrderQuantityUnits",
+  "ItemPackagingDetails_number_of_items_package": "NumberOfItemsPerPackage",
+
+  "WarehouseDetails_main_warehouse_quantity_in_stock ": "1_Main Warehouse_WQuantity", //"//*[@id='1_Main Warehouse_WQuantity']",//Xpath // "#\\31 _Main\\ Warehouse_WQuantity",
+
+  "SaveItemButton": "btnSubmit" //id"
+}
