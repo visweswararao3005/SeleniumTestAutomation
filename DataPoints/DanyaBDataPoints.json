@@ -1,4 +1,12 @@
 {
+  "ClientName": "Danya B",
+  "BaseUrl": "https://www.order-fulfillment.us/opal/uat/Danya",
+  "USERNAME": "cityon",
+  "PASSWORD": "eI%%PN7FOw3q",
+  "REMEMBERME": false,
+  "Headless": false,
+  "SuccessUrlContains": "https://www.order-fulfillment.us/opal/uat/danya/home/client",
+  "LogoutUrlContains": "https://www.order-fulfillment.us/opal/uat/danya/users/logout",
 
   "Username": "LoginId", //id
   "Password": "Password", //id
@@ -35,7 +43,7 @@
   "subMenu_2_9": "Reports",
   "subMenu_2_10": "Shipment Tracker",
   "subMenu_2_11": "Order Engine Records",
-  "subMenu_2_12": "Documents", //LinkText 
+  "subMenu_2_12": "Documents", // LinkText 
 
   //Add customer
   "AddCustomerButton": "btnAdd", //id
@@ -47,36 +55,36 @@
   "Customer_contact_first_name": "FirstName",
   "Customer_contact_last_name": "LastName",
   "Customer_sales_rep": "SalesRep_UserId",
-  "Customer_custom_packing_list": "",
-  "Customer_payment_term": "",
-  "Customer_fedex_account_number": "",
-  "Customer_ups_customer_account_number": "",
+  "Customer_custom_packing_list": "IsCustomPackingList",
+  "Customer_payment_term": "PaymentTermEnum",
+  "Customer_fedex_account_number": "FedexAccountNumber",
+  "Customer_ups_customer_account_number": "UpsAccountNumber",
   "Customer_pt000872": "PackingSlipTypeEnum",
-  "Customer_retailer_id": "",
+  "Customer_retailer_id": "RetailerId",
 
-  "billing_name1": "",
-  "billing_name2": "",
-  "billing_phone": "",
-  "billing_email": "",
-  "billing_address1": "",
-  "billing_address2": "",
-  "billing_country": "",
-  "billing_city": "",
-  "billing_state": "",
-  "billing_postal_code": "",
-  "billing_notes": "",
+  "billing_name1": "BillingAddress_Name1",
+  "billing_name2": "BillingAddress_Name2",
+  "billing_phone": "BillingAddress_Phone",
+  "billing_email": "BillingAddress_Email",
+  "billing_address1": "BillingAddress_Address1",
+  "billing_address2": "BillingAddress_Address2",
+  "billing_country": "BillingAddress_Country",
+  "billing_city": "BillingAddress_City",
+  "billing_state": "BillingAddress_State",
+  "billing_postal_code": "BillingAddress_PostalCode",
+  "billing_notes": "BillingAddress_Notes",
 
-  "shipping_name1": "",
-  "shipping_name2": "",
-  "shipping_phone": "",
-  "shipping_email": "",
-  "shipping_address1": "",
-  "shipping_address2": "",
-  "shipping_country": "",
-  "shipping_city": "",
-  "shipping_state": "",
-  "shipping_postal_code": "",
-  "shipping_notes": "",
+  "shipping_name1": "ShippingAddress_Name1",
+  "shipping_name2": "ShippingAddress_Name2",
+  "shipping_phone": "ShippingAddress_Phone",
+  "shipping_email": "ShippingAddress_Email",
+  "shipping_address1": "ShippingAddress_Address1",
+  "shipping_address2": "ShippingAddress_Address2",
+  "shipping_country": "ShippingAddress_Country",
+  "shipping_city": "ShippingAddress_City",
+  "shipping_state": "ShippingAddress_State",
+  "shipping_postal_code": "ShippingAddress_PostalCode",
+  "shipping_notes": "ShippingAddress_Notes",
 
   "SaveCustomerButton": "btnSubmit", //id"
 

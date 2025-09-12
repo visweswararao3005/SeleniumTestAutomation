@@ -1,0 +1,7 @@
+{
+  "LoginScreen": "Login",
+  "ItemScreen": "Item",
+  "CustomerScreen": "Customer",
+  "OrderScreen": "Order"
+
+}
