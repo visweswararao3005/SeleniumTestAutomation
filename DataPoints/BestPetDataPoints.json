@@ -1,0 +1,278 @@
+{
+  "ClientName": "BestPet",
+  "BaseUrl": "https://www.order-fulfillment.us/opal/uat/bestpet",
+  "USERNAME": "cityon",
+  "PASSWORD": "eI%%PN7FOw3q",
+  "REMEMBERME": false,
+  "Headless": false,
+  "SuccessUrlContains": "https://www.order-fulfillment.us/opal/uat/bestpet/orderenginerecords/enginerecords",
+  "LogoutUrlContains": "https://www.order-fulfillment.us/opal/uat/bestpet/",
+
+  "Username": "LoginId", //id
+  "Password": "Password", //id
+  "RememberMe": "label.checkbox", //css
+  "LoginButton": "btnLogin", //id
+
+  "LogoutButton": "logout", //id
+  "YesLogout": "bot2-Msg1", //id
+  "NoLogout": "bot1-Msg1", //id
+
+
+  "Invalid": ".alert.alert-danger.alert-dismissable", //class
+
+  "UsernameValidation": "span[data-valmsg-for='LoginId']", //css
+  "PasswordValidation": "span[data-valmsg-for='Password']", //css
+
+  "mainMenu_1": "Dashboard", //LinkText
+  "subMenu_1_1": "Orders Received Today",
+  "subMenu_1_2": "Sales Revenue",
+  "subMenu_1_3": "Sales Revenue by Year",
+  "subMenu_1_4": "Order Volume",
+  "subMenu_1_5": "Order Volume by Year",
+  "subMenu_1_6": "Top 5 Selling Items",
+  "subMenu_1_7": "Top 5 Sales Channels",
+  "subMenu_1_8": "Engine Status / Errors",
+
+  "mainMenu_2": "Admin",
+  "subMenu_2_1": "User List",
+
+  "mainMenu_3": "Company",
+  "subMenu_3_1": "Customers/Vendors",
+  "subMenu_3_2": "Vendors",
+
+  "mainMenu_4": "Inventory",
+  "subMenu_4_1": "Item List",
+  "subMenu_4_2": "Price List",
+  "subMenu_4_3": "Inventory Feed",
+  "subMenu_4_4": "Update Stock Level",
+  "subMenu_4_5": "Inventory Audit Trail",
+
+  "mainMenu_5": "Sales Order",
+  "subMenu_5_1": "Order List",
+  "subMenu_5_2": "Warehouse Orders",
+  "subMenu_5_3": "Order Item List",
+  "subMenu_5_4": "Order Engine Records",
+  "subMenu_5_5": "Failed Order Errors",
+  "subMenu_5_6": "Order Upload",
+
+  "mainMenu_6": "Warehouse",
+  "subMenu_6_1": "Batch Shipping File",
+
+  "mainMenu_7": "Purchase Order",
+  "subMenu_7_1": "Purchase Order List",
+
+  "mainMenu_8": "Accounting",
+  "subMenu_8_1": "QuickBooks",
+
+  "mainMenu_9": "Scan history list",
+  "subMenu_9_1": "Scan history list",
+
+  "mainMenu_10": "File Imports",
+  "subMenu_10_1": "File Imports",
+
+  "mainMenu_11": "Reports",
+  "subMenu_11_1": "Reports",
+
+  "mainMenu_12": "Resource", //LinkText
+  "subMenu_12_1": "Help Document",
+
+  //Add Item
+  "AddItemButton": "btnAdd", //id
+
+  "ItemDetails_item_number": "ItemName",
+  "ItemDetails_manufacture_part_number": "PartNumber",
+  "ItemDetails_upc_code": "Upc",
+  "ItemDetails_inventory_number": "InventoryNumber",
+  "ItemDetails_item_description": "Description",
+  "ItemDetails_notes": "Notes",
+  "ItemDetails_item_type": "ItemType",
+  "ItemDetails_status": "Status",
+  "ItemDetails_price": "Price",
+
+  "ItemDetails_item_um": "ItemUmEnum",
+  "ItemDetails_backorder_date": "BackOrderDate",
+  "ItemDetails_backorder_available_qty": "BackOrderAvailableQuantity",
+  "ItemDetails_discontinued": "IsDiscontinued",
+  "ItemDetails_fulfillment_type": "ItemFulfilmentType",
+  "ItemDetails_product_type": "ProductType",
+
+
+  "ItemDimensionsDetails_item_weight_lbs": "ItemWeight",
+  "ItemDimensionsDetails_item_weight_lbs_Unit": "ItemWeightUnits",
+  "ItemDimensionsDetails_item_length_inches": "ItemLength",
+  "ItemDimensionsDetails_item_length_inches_Unit": "ItemLengthUnits",
+  "ItemDimensionsDetails_item_width_inches": "ItemWidth",
+  "ItemDimensionsDetails_item_width_inches_Unit": "ItemWidthUnits",
+  "ItemDimensionsDetails_item_height_inches": "ItemHeight",
+  "ItemDimensionsDetails_item_height_inches_Unit": "ItemHeightUnits",
+
+  "ItemDimensionsDetails_item_Volume": "ItemVolume",
+  "ItemDimensionsDetails_item_Volume_Unit": "ItemVolumeUnits",
+
+  "ship_weight": "ShipWeight",
+  "ship_weight_Units": "ShipWeightUnits",
+  "ship_length": "ShipLength",
+  "ship_length_Units": "ShipLengthUnits",
+  "ship_width": "ShipWidth",
+  "ship_width_Units": "ShipWidthUnits",
+  "ship_height": "ShipHeight",
+  "ship_height_Units": "ShipHeightUnits",
+  "ship_volume": "ShipVolume",
+  "ship_volume_Units": "ShipVolumeUnits",
+
+  "box_weight": "BoxWeight",
+  "box_weight_Units": "BoxWeightUnits",
+  "box_length": "BoxLength",
+  "box_length_Units": "BoxLengthUnits",
+  "box_width": "BoxWidth",
+  "box_width_Units": "BoxWidthUnits",
+  "box_height": "BoxHeight",
+  "box_height_Units": "BoxHeightUnits",
+  "box_volume": "BoxVolume",
+  "box_volume_Units": "BoxVolumeUnits",
+  "items_per_box": "NumberOfItemsPerBox",
+
+  "carton_weight": "CartonWeight",
+  "carton_weight_Units": "CartonWeightUnits",
+  "carton_length": "CartonLength",
+  "carton_length_Units": "CartonLengthUnits",
+  "carton_width": "CartonWidth",
+  "carton_width_Units": "CartonWidthUnits",
+  "carton_height": "CartonHeight",
+  "carton_height_Units": "CartonHeightUnits",
+  "carton_volume": "CartonVolume",
+  "carton_volume_Units": "CartonVolumeUnits",
+  "items_per_carton": "NumberOfItemsPerCarton",
+
+  "SaveItemButton": "btnSubmit", //id"
+
+
+  //Add customer
+  "AddCustomerButton": "btnAdd", //id
+
+  "Customer_customer_name": "CompanyName",
+  "Customer_short_name": "ShortName",
+  "Customer_Status": "StatusEnum",
+  "Customer_customer_type": "CompanyTypeEnum",
+  "Customer_sales_rep": "SalesRepId",
+  "Customer_fedex_account_number": "FedexAccountNumber",
+  "Customer_ups_customer_account_number": "UpsAccountNumber",
+  "Customer_type": "CustomerTypeEnum",
+
+  "billing_name1": "BillingAddress_Name1",
+  "billing_name2": "BillingAddress_Name2",
+  "billing_phone": "BillingAddress_Phone",
+  "billing_email": "BillingAddress_Email",
+  "billing_address1": "BillingAddress_Address1",
+  "billing_address2": "BillingAddress_Address2",
+  "billing_country": "BillingAddress_Country",
+  "billing_city": "BillingAddress_City",
+  "billing_state": "BillingAddress_State",
+  "billing_postal_code": "BillingAddress_PostalCode",
+  "billing_notes": "BillingAddress_Notes",
+
+  "shipping_name1": "ShippingAddress_Name1",
+  "shipping_name2": "ShippingAddress_Name2",
+  "shipping_phone": "ShippingAddress_Phone",
+  "shipping_email": "ShippingAddress_Email",
+  "shipping_address1": "ShippingAddress_Address1",
+  "shipping_address2": "ShippingAddress_Address2",
+  "shipping_country": "ShippingAddress_Country",
+  "shipping_city": "ShippingAddress_City",
+  "shipping_state": "ShippingAddress_State",
+  "shipping_postal_code": "ShippingAddress_PostalCode",
+  "shipping_notes": "ShippingAddress_Notes",
+
+  "SaveCustomerButton": "btnSubmit", //id
+
+  //Customer Item Mapping
+  "CustomerItem_SearchCustomer": "btnSearch",
+  "CustomerItem_CustomerName": "SearchCustomer_Name",
+  "CustomerItem_ItemName": "CustomerItem_ItemId",
+  "CustomerItem_ItemUPC": "CustomerItem_ItemUpc",
+  "CustomerItem_ItemQuantity": "CustomerItem_ReportingQuantity",
+  "CustomerItem_SaveItem": "btnAdd",
+
+
+  //Add Order
+  "AddOrderButton": "btnAdd", //id
+
+  //Draft
+  "SelectCustomer": "btnOrderCustomerSelect",
+  "SearchCustomer": "SearchCustomer_Name",
+  "SearchCustomerButton": "btnSearch", //id
+  "SelectSearchedCustomer": "customerName", //id
+  "SearchCustomerSubmit": "btnSubmit", //id
+  "CloseCustomerPopup": "cboxClose", //id
+
+  "OrderDetails_po_number": "PurchaseOrderNumber",
+  "OrderDetails_customer_reference_number": "CustomerReferenceNumber",
+  "OrderDetails_fulfillment_type": "FulfillmentTypeEnum",
+  "OrderDetails_shipping_method": "ShippingAccount_Method",
+  "OrderDetails_account_number": "ShippingAccount_AccountNumber",
+  "OrderDetails_order_date": "",
+  "OrderDetails_due_date": "",
+  "OrderDetails_ship_date": "",
+  "OrderDetails_reference_1": "Reference1",
+  "OrderDetails_reference_2": "Reference2",
+  "OrderDetails_customer_message": "CustomerMessage",
+
+  "ShipTo_first_name": "ShippingAddress_Name1",
+  "ShipTo_last_name": "ShippingAddress_Name2",
+  "ShipTo_phone": "ShippingAddress_Phone",
+  "ShipTo_email": "ShippingAddress_Email",
+  "ShipTo_address_1": "ShippingAddress_Address1",
+  "ShipTo_address_2": "ShippingAddress_Address2",
+  "ShipTo_country": "ShippingAddress_Country",
+  "ShipTo_city": "ShippingAddress_City",
+  "ShipTo_state": "ShippingAddress_State",
+  "ShipTo_zip": "ShippingAddress_PostalCode",
+  "ShipTo_notes": "ShippingAddress_Notes",
+
+  "BillTo_first_name": "BillingAddress_Name1",
+  "BillTo_last_name": "BillingAddress_Name2",
+  "BillTo_phone": "BillingAddress_Phone",
+  "BillTo_email": "BillingAddress_Email",
+  "BillTo_address_1": "BillingAddress_Address1",
+  "BillTo_address_2": "BillingAddress_Address2",
+  "BillTo_country": "BillingAddress_Country",
+  "BillTo_city": "BillingAddress_City",
+  "BillTo_state": "BillingAddress_State",
+  "BillTo_zip": "BillingAddress_PostalCode",
+  "BillTo_notes": "BillingAddress_Notes",
+
+  "ShipFrom_first_name": "FromAddress_Name1",
+  "ShipFrom_last_name": "FromAddress_Name2",
+  "ShipFrom_phone": "FromAddress_Phone",
+  "ShipFrom_email": "FromAddress_Email",
+  "ShipFrom_address_1": "FromAddress_Address1",
+  "ShipFrom_address_2": "FromAddress_Address2",
+  "ShipFrom_country": "FromAddress_Country",
+  "ShipFrom_city": "FromAddress_City",
+  "ShipFrom_state": "FromAddress_State",
+  "ShipFrom_zip": "FromAddress_PostalCode",
+  "ShipFrom_notes": "FromAddress_Notes",
+
+  "AddOrderItemButton": "btnAddItem", //id
+  "SearchItem": "SearchItem_ItemName",
+  "SearchItemButton": "btnSearch", //id
+  "SelectSearchedItem": "itemName", //id
+  "ItemPrice": "AddOrderItem_Price",
+  "ItemWarehouse": "AddOrderItem_WarehouseId",
+  "ItemQuantity": "AddOrderItem_Quantity",
+  "AddItemSubmit": "btn-submit", //id
+  "CloseItemPopup": "cboxClose", //id"
+
+  //Finalize 
+  "AddpackageButton": "btnAddPackage", //id"
+  "PackageSize": "PackageSize",
+  "PackageWeight": "Weight",
+  "PackageReference": "ReferenceNumber",
+  "AddPackageSubmit": "btnSubmit", //id"
+
+  "ManagePackageButton": "btnManagePackageItems", //id""
+  "ManagePackageSubmit": "btnSubmit" //id"
+
+
+
+}

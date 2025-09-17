@@ -5,7 +5,7 @@ namespace LoginAutomation.Tests.Models
 {
     public class OrdersModel
     {
-        public Order Order { get; set; }
+        public List<Order> Orders { get; set; }
     }
 
     public class Order
@@ -16,6 +16,7 @@ namespace LoginAutomation.Tests.Models
         public Address BillTo { get; set; }
         public Address ShipFrom { get; set; }
         public List<OrderItem> Items { get; set; }
+        public Package Packages { get; set; }
     }
 
     public class SelectCustomerDetails
@@ -59,5 +60,12 @@ namespace LoginAutomation.Tests.Models
         public string Warehouse { get; set; }
         public string Price { get; set; }
         public string Quantity { get; set; }
+    }
+
+    public class Package
+    {
+        public string PackageSize { get; set; }
+        public string PackageWeight { get; set; }
+        public string PackageReference { get; set; }
     }
 }

@@ -1,73 +1,156 @@
 {
-  "Order": {
-    "SelectCustomerDetails": {
-      "CustomerName": "QVC"
-    },
-    "OrderDetails": {
-      "po_number": "PO-20250911-001",
-      "customer_reference_number": "CUST-REF-7890",
-      "fulfillment_type": "Drop Ship",
-      "shipping_method": "Deliver",
-      "account_number": "ACC123456",
-      "order_date": "2025-09-11",
-      "due_date": "2025-09-15",
-      "ship_date": "2025-09-13",
-      "reference_1": "REF123",
-      "reference_2": "REF456",
-      "customer_message": "Please deliver between 9 AM and 5 PM"
-    },
-    "ShipTo": {
-      "first_name": "John",
-      "last_name": "Doe",
-      "phone": "+1-555-123-4567",
-      "email": "john.doe@example.com",
-      "address_1": "123 Maple Street",
-      "address_2": "Apt 4B",
-      "country": "United States",
-      "city": "New York",
-      "state": "New York",
-      "zip": "10001",
-      "notes": "Leave package at front desk"
-    },
-    "BillTo": {
-      "first_name": "John",
-      "last_name": "Doe",
-      "phone": "+1-555-123-4567",
-      "email": "john.doe@example.com",
-      "address_1": "456 Elm Street",
-      "address_2": "Suite 200",
-      "country": "United States",
-      "city": "New York",
-      "state": "New York",
-      "zip": "10005",
-      "notes": " "
-    },
-    "ShipFrom": {
-      "first_name": "Alice",
-      "last_name": "Smith",
-      "phone": "+1-555-987-6543",
-      "email": "alice.smith@warehouse.com",
-      "address_1": "789 Warehouse Lane",
-      "address_2": "",
-      "country": "United States",
-      "city": "Los Angeles",
-      "state": "California",
-      "zip": "90001",
-      "notes": " "
-    },
-    "Items": [
-      {
-        "ItemName": "A0001",
-        "Price": "19.99",
-        "Warehouse": "Chino",
-        "Quantity": "2"
+  "Orders": [
+    {
+      "SelectCustomerDetails": {
+        "CustomerName": "1NewJohn1"
       },
-      {
-        "ItemName": "BR-4 BLK",
-        "Price": "35.50",
-        "Quantity": "1",
-        "Warehouse": "Chino"
+      "OrderDetails": {
+        "po_number": "TestV-PO-20250911-003",
+        "customer_reference_number": "CUST-REF-7890",
+        "fulfillment_type": "Drop Ship",
+        "shipping_method": "FedEx Standard Overnight®",
+        "account_number": "ACC123456",
+        "order_date": "2025-09-11",
+        "due_date": "2025-09-15",
+        "ship_date": "2025-09-13",
+        "reference_1": "REF123",
+        "reference_2": "REF456",
+        "customer_message": "Please deliver between 9 AM and 5 PM"
+      },
+      "ShipTo": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "+1-555-123-4567",
+        "email": "john.doe@example.com",
+        "address_1": "123 Maple Street",
+        "address_2": "Apt 4B",
+        "country": "United States",
+        "city": "New York",
+        "state": "New York",
+        "zip": "10001",
+        "notes": "Leave package at front desk"
+      },
+      "BillTo": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "+1-555-123-4567",
+        "email": "john.doe@example.com",
+        "address_1": "456 Elm Street",
+        "address_2": "Suite 200",
+        "country": "United States",
+        "city": "New York",
+        "state": "New York",
+        "zip": "10005",
+        "notes": " "
+      },
+      "ShipFrom": {
+        "first_name": "Alice",
+        "last_name": "Smith",
+        "phone": "+1-555-987-6543",
+        "email": "alice.smith@warehouse.com",
+        "address_1": "789 Warehouse Lane",
+        "address_2": "",
+        "country": "United States",
+        "city": "Los Angeles",
+        "state": "California",
+        "zip": "90001",
+        "notes": " "
+      },
+      "Items": [
+        {
+          "ItemName": "00T-NewShirt002",
+          "Price": "19.99",
+          "Warehouse": "LA1",
+          "Quantity": "2"
+        },
+        {
+          "ItemName": "00T-NewShirt003",
+          "Price": "35.50",
+          "Quantity": "1",
+          "Warehouse": "LA1"
+        }
+      ],
+      "Packages": {
+        "PackageSize": "18 x 12 x 3",
+        "PackageWeight": "15",
+        "PackageReference": "REF12"
       }
-    ]
-  }
+    },
+    {
+      "SelectCustomerDetails": {
+        "CustomerName": "1NewJohn2"
+      },
+      "OrderDetails": {
+        "po_number": "TestV-PO-20250911-004",
+        "customer_reference_number": "CUST-REF-7890",
+        "fulfillment_type": "Drop Ship",
+        "shipping_method": "FedEx Standard Overnight®",
+        "account_number": "ACC123456",
+        "order_date": "2025-09-11",
+        "due_date": "2025-09-15",
+        "ship_date": "2025-09-13",
+        "reference_1": "REF123",
+        "reference_2": "REF456",
+        "customer_message": "Please deliver between 9 AM and 5 PM"
+      },
+      "ShipTo": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "+1-555-123-4567",
+        "email": "john.doe@example.com",
+        "address_1": "123 Maple Street",
+        "address_2": "Apt 4B",
+        "country": "United States",
+        "city": "New York",
+        "state": "New York",
+        "zip": "10001",
+        "notes": "Leave package at front desk"
+      },
+      "BillTo": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "+1-555-123-4567",
+        "email": "john.doe@example.com",
+        "address_1": "456 Elm Street",
+        "address_2": "Suite 200",
+        "country": "United States",
+        "city": "New York",
+        "state": "New York",
+        "zip": "10005",
+        "notes": " "
+      },
+      "ShipFrom": {
+        "first_name": "Alice",
+        "last_name": "Smith",
+        "phone": "+1-555-987-6543",
+        "email": "alice.smith@warehouse.com",
+        "address_1": "789 Warehouse Lane",
+        "address_2": "",
+        "country": "United States",
+        "city": "Los Angeles",
+        "state": "California",
+        "zip": "90001",
+        "notes": " "
+      },
+      "Items": [
+        {
+          "ItemName": "00T-NewShirt002",
+          "Price": "19.99",
+          "Warehouse": "LA1",
+          "Quantity": "2"
+        }
+        {
+          "ItemName": "00T-NewShirt003",
+          "Price": "35.50",
+          "Quantity": "1",
+          "Warehouse": "LA1"
+        }
+      ],
+      "Packages": {
+        "PackageSize": "18 x 12 x 3",
+        "PackageWeight": "15",
+        "PackageReference": "REF12"
+      }
+    }
+  ]
 }

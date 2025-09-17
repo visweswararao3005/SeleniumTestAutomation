@@ -67,18 +67,18 @@ namespace LoginAutomation.Tests.Utils
                 if (!_runtimeLogged) // avoid duplicate runtime logs in same run
                 {
                     File.AppendAllText(LogFile, $"\n\nRuntime Start: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n");
-                    File.AppendAllText(LogFile, $"Client  -  StartTime  -  Status  -  TimeTaken  -  TestName\n");
+                    File.AppendAllText(LogFile, $"Client  -  StartTime  -  Status  -  TimeTaken  -  Screen  -  TestName\n");
                     _runtimeLogged = true;
                 }
             }
         }
 
-        public static void LogTestStatus(string testName, DateTime startTime, DateTime endTime, string status, string ClientName)
+        public static void LogTestStatus(string testName, DateTime startTime, DateTime endTime, string status, string Screen, string ClientName)
         {
             lock (_lock)
             {
                 var timeTaken = endTime - startTime;
-                string line = $"{ClientName}  -  {startTime:HH:mm:ss}  -  {status}  -  {timeTaken.TotalSeconds:F2}s  -  {testName}";
+                string line = $"{ClientName}  -  {startTime:HH:mm:ss}  -  {status}  -  {timeTaken.TotalSeconds:F2}s  -  {Screen}  -  {testName}";
                 File.AppendAllText(LogFile, line + Environment.NewLine);
             }
         }
@@ -88,7 +88,7 @@ namespace LoginAutomation.Tests.Utils
     {
         private static readonly string _connString = Config.Get("AppSettings:DBstring");
 
-        public static void LogTestResult(string testId,string testName, DateTime start, DateTime end, string status,string ClientName)
+        public static void LogTestResult(string testId,string testName, DateTime start, DateTime end, string status, string Screen, string ClientName)
         { 
             var duration = (int)(end - start).TotalSeconds;
 
@@ -96,8 +96,8 @@ namespace LoginAutomation.Tests.Utils
             using (var cmd = conn.CreateCommand())
             {
                 cmd.CommandText = @"INSERT INTO TestRunResults 
-                                (TestID, TestName, StartTime, EndTime, DurationSeconds, Status, ClientName) 
-                                VALUES (@TestID,@TestName, @StartTime, @EndTime, @Duration, @Status,@ClientName)";
+                                (TestID, TestName, StartTime, EndTime, DurationSeconds, Status, ClientName, Screen) 
+                                VALUES (@TestID,@TestName, @StartTime, @EndTime, @Duration, @Status, @ClientName, @Screen)";
                 cmd.Parameters.AddWithValue("@TestID", testId);
                 cmd.Parameters.AddWithValue("@TestName", testName);
                 cmd.Parameters.AddWithValue("@StartTime", start);
@@ -105,6 +105,7 @@ namespace LoginAutomation.Tests.Utils
                 cmd.Parameters.AddWithValue("@Duration", duration);
                 cmd.Parameters.AddWithValue("@Status", status);
                 cmd.Parameters.AddWithValue("@ClientName", ClientName);
+                cmd.Parameters.AddWithValue("@Screen", Screen);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
