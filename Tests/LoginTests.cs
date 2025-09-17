@@ -24,8 +24,9 @@ namespace LoginAutomation.Tests.Tests
        
         private static readonly Dictionary<string, string> DanyaB = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DanyaBDataPointsFile"))));
         private static readonly Dictionary<string, string> Capital = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:CapitalDataPointsFile"))));
+        private static readonly Dictionary<string, string> BestPet = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:BestPetDataPointsFile"))));
 
-        Dictionary<string, string> L = Capital; //JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DataPointsFile"))));
+        Dictionary<string, string> L = BestPet; //JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DataPointsFile"))));
 
         private readonly Dictionary<string, string> Screens = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:screenshotPath"))));
 
@@ -40,7 +41,7 @@ namespace LoginAutomation.Tests.Tests
 
         public static IEnumerable<TestCaseData> Cases() => LoadCases().Select((tc, i) => new TestCaseData(tc).SetName($"{i + 1}.Login_{tc.Expected}_{tc.Username ?? "EMPTY"}"));
 
-        [Test, TestCaseSource(nameof(Cases))]
+        [Test, TestCaseSource(nameof(Cases)), Order(1)]
         public void Run_Login_Scenarios(LoginTestCase tc)
         {
             string Screen = Screens["LoginScreen"];
@@ -63,6 +64,10 @@ namespace LoginAutomation.Tests.Tests
                 {
                     page.Capital_explore();
                 }
+                if (L["ClientName"] == "BestPet")
+                {
+                    page.BestPet_explore();
+                }
             }            
 
             var expect = (tc.Expected ?? "Error").ToLowerInvariant();
@@ -74,6 +79,12 @@ namespace LoginAutomation.Tests.Tests
                     case "success":
                         if (!string.IsNullOrWhiteSpace(LogoutUrlPart))
                         {
+                            if (!(string.IsNullOrEmpty(errorMsg)))
+                            {
+                                Logger.Info($"Captured error message: {errorMsg}");
+                                status = "Fail";
+                                Assert.Fail($"Login failed Due to : {errorMsg}");
+                            }
                             StringAssert.Contains(LogoutUrlPart.ToLowerInvariant(), Driver.Url.ToLowerInvariant());
                             Logger.Info($"✅ Success: Redirected to expected URL {Driver.Url}");
                             status = "Pass";
@@ -88,7 +99,7 @@ namespace LoginAutomation.Tests.Tests
                     case "error":
                         Logger.Info($"Captured error message: {errorMsg}");
 
-                        Assert.IsTrue(errorMsg.Contains("invalid") || errorMsg.Contains("locked"),
+                        Assert.IsTrue(errorMsg.Contains("invalid") || errorMsg.Contains("locked") || errorMsg.Contains("Invalid"),
                             $"Expected error message but got: {errorMsg}");
                         Assert.IsNotEmpty(errorMsg, "Expected an error/validation message but none was found.");
                         Logger.Info("✅ Error case validated successfully.");
@@ -128,8 +139,7 @@ namespace LoginAutomation.Tests.Tests
                 DbLogger.LogTestResult(TestID, TestContext.CurrentContext.Test.Name, startTime, endTime, status, Screen, ClientName);
             }
         }
-
-        [Test]
+        [Test, Order(2)]
         public void Add_Customers_Test()
         {
             string Screen = Screens["CustomerScreen"];
@@ -150,10 +160,10 @@ namespace LoginAutomation.Tests.Tests
                 var password = L["PASSWORD"];
                 bool RememberMe = Convert.ToBoolean(L["REMEMBERME"]);
 
-                string errorMsg = Page.Login(username ?? "", password ?? "",RememberMe);
+                string errorMsg = Page.Login(username ?? "", password ?? "", RememberMe);
 
                 if (!string.IsNullOrEmpty(errorMsg))
-                { 
+                {
                     status = "Fail";
                     Assert.Fail("Login failed – stopping test execution."); // 🚀 EARLY EXIT
                 }
@@ -165,7 +175,11 @@ namespace LoginAutomation.Tests.Tests
                 }
                 if (L["ClientName"] == "Capital")
                 {
-
+                    Page.Captial_AddCustomer();
+                }
+                if (L["ClientName"] == "BestPet")
+                {
+                    Page.BestPet_AddCustomer();
                 }
 
                 // Step 4: Logout
@@ -194,8 +208,7 @@ namespace LoginAutomation.Tests.Tests
                 DbLogger.LogTestResult(TestID, TestContext.CurrentContext.Test.Name, startTime, endTime, status, Screen, ClientName);
             }
         }
-
-        [Test]
+        [Test, Order(3)]
         public void Add_Items_Test()
         {
             string Screen = Screens["ItemScreen"];
@@ -231,7 +244,11 @@ namespace LoginAutomation.Tests.Tests
                 }
                 if (L["ClientName"] == "Capital")
                 {
-
+                    Page.Capital_AddItem();
+                }
+                if (L["ClientName"] == "BestPet")
+                {
+                    Page.BestPet_AddItem();
                 }
 
                 // Step 4: Logout
@@ -261,8 +278,83 @@ namespace LoginAutomation.Tests.Tests
                 DbLogger.LogTestResult(TestID, TestContext.CurrentContext.Test.Name, startTime, endTime, status, Screen, ClientName);
             }
         }
+        [Test, Order(4)]
+        public void Customer_Item_Mapping_Test()
+        {
+            string Screen = Screens["CustomerScreen"];
+            var startTime = DateTime.Now;
+            string status = "Fail";
+            var Page = new LoginPage(Driver);
 
-        [Test]
+            try
+            {
+                Logger.Info($"[TEST START] {TestContext.CurrentContext.Test.Name}");
+
+                // Step 1: Navigate to URL
+                Page.Navigate();
+                Logger.Info("Navigated to login page.");
+
+                // Step 2: Login
+                var username = L["USERNAME"];
+                var password = L["PASSWORD"];
+                bool RememberMe = Convert.ToBoolean(L["REMEMBERME"]);
+
+                string errorMsg = Page.Login(username ?? "", password ?? "", RememberMe);
+
+                if (!string.IsNullOrEmpty(errorMsg))
+                {
+                    status = "Fail";
+                    Assert.Fail("Login failed – stopping test execution."); // 🚀 EARLY EXIT
+                }
+
+                // Step 3: Add Customers
+                if (L["ClientName"] == "Danya B")
+                {
+                    Page.CustomerItemMapping();
+                }
+                if (L["ClientName"] == "Capital")
+                {
+
+                    Page.Capital_CustomerItemMapping();
+                }
+                if (L["ClientName"] == "BestPet")
+                {
+                    errorMsg = Page.BestPet_CustomerItemMapping();
+                    if (!string.IsNullOrEmpty(errorMsg))
+                    {
+                        Logger.Error($"[STEP 3] Customer Item Mapping failed: {errorMsg}");
+                        Assert.Fail("Customer Item Mapping failed – stopping test execution.");
+                    }
+                }
+
+                // Step 4: Logout
+                Page.logout();
+
+                status = "Pass";
+                Logger.Info("[TEST RESULT] Test completed successfully.");
+
+            }
+            catch (AssertionException)
+            {
+                status = "Fail";
+                throw; // NUnit reports failure
+            }
+            catch (Exception ex)
+            {
+                status = "Fail";
+                Logger.Error($"[ERROR] Test failed: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                var endTime = DateTime.Now;
+                string ClientName = L["ClientName"];
+                Logger.Info($"[TEST END] {TestContext.CurrentContext.Test.Name} for Client-{ClientName} | Status={status} | Duration={(endTime - startTime).TotalSeconds} sec");
+                StatusLogger.LogTestStatus(TestContext.CurrentContext.Test.Name, startTime, endTime, status, Screen, ClientName);
+                DbLogger.LogTestResult(TestID, TestContext.CurrentContext.Test.Name, startTime, endTime, status, Screen, ClientName);
+            }
+        }
+        [Test, Order(5)]
         public void Order_Creation_Test()
         {
             string Screen = Screens["OrderScreen"];
@@ -298,10 +390,21 @@ namespace LoginAutomation.Tests.Tests
                 // Step 3: Order creation based on client
                 Logger.Info($"[STEP 3] Starting order creation for client: {L["ClientName"]}");
                 if (L["ClientName"] == "Danya B")
+                {
                     Page.CreateOrder();
+                }
                 else if (L["ClientName"] == "Capital")
                 {
                     errorMsg = Page.Capital_CreateOrder();
+                    if (!string.IsNullOrEmpty(errorMsg))
+                    {
+                        Logger.Error($"[STEP 3] Order creation failed: {errorMsg}");
+                        Assert.Fail("Order creation failed – stopping test execution.");
+                    }
+                }
+                else if (L["ClientName"] == "BestPet")
+                {
+                    errorMsg = Page.BestPet_CreateOrder();
                     if (!string.IsNullOrEmpty(errorMsg))
                     {
                         Logger.Error($"[STEP 3] Order creation failed: {errorMsg}");

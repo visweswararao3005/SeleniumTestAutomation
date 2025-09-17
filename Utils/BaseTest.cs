@@ -19,7 +19,7 @@ namespace LoginAutomation.Tests.Utils
         public void GlobalSetup()
         {
             StatusLogger.LogRuntimeStart();
-            TestID = $"TestID_{DateTime.Now:yyyyMMddHHmmss}";
+            TestID = $"TestCaseID_{DateTime.Now:yyyyMMddHHmmss}";
         }
 
         [SetUp]

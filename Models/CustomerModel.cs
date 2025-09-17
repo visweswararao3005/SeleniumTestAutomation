@@ -33,6 +33,11 @@ namespace LoginAutomation.Tests.Models
         public string UPSAccountNumber { get; set; }
         public string PT000872 { get; set; }
         public string RetailerId { get; set; }
+
+        public string ShortName { get; set; }
+        public string Status { get; set; }
+        public string CustomerType { get; set; }
+        public string Type { get; set; }
     }
 
     public class BillingDetails
