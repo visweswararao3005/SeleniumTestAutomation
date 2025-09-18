@@ -26,7 +26,7 @@ namespace LoginAutomation.Tests.Tests
         private static readonly Dictionary<string, string> Capital = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:CapitalDataPointsFile"))));
         private static readonly Dictionary<string, string> BestPet = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:BestPetDataPointsFile"))));
 
-        Dictionary<string, string> L = BestPet; //JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DataPointsFile"))));
+        Dictionary<string, string> L = DanyaB; //JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DataPointsFile"))));
 
         private readonly Dictionary<string, string> Screens = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:screenshotPath"))));
 
