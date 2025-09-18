@@ -86,10 +86,15 @@ namespace LoginAutomation.Tests.Utils
 
     public static class DbLogger
     {
-        private static readonly string _connString = Config.Get("AppSettings:DBstring");
-
         public static void LogTestResult(string testId,string testName, DateTime start, DateTime end, string status, string Screen, string ClientName)
         { 
+            // Dynamically resolve the connection string for this client
+            var _connString = Config.Get($"AppSettings:{ClientName}");
+            if (string.IsNullOrEmpty(_connString))
+            {
+                Logger.Error($"No connection string found for client: {ClientName}");
+                return;
+            }
             var duration = (int)(end - start).TotalSeconds;
 
             using (var conn = new SqlConnection(_connString))

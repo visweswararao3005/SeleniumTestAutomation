@@ -23,7 +23,7 @@ namespace LoginAutomation.Tests.Pages
         private static readonly Dictionary<string, string> Capital = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:CapitalDataPointsFile"))));
         private static readonly Dictionary<string, string> BestPet = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:BestPetDataPointsFile"))));
 
-        Dictionary<string, string> L = BestPet; //JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DataPointsFile"))));
+        Dictionary<string, string> L = DanyaB; //JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:DataPointsFile"))));
 
         private readonly string ItemsFile = File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:ItemData")));
         private readonly string CustomersFile = File.ReadAllText(Path.Combine(projectRoot, Config.Get("AppSettings:CustomerData")));
