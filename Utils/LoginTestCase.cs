@@ -1,4 +1,4 @@
-﻿namespace LoginAutomation.Tests.Utils
+﻿namespace TestAutomation.Utils
 {
     public class LoginTestCase
     {

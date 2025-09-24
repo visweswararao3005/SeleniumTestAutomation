@@ -1,0 +1,34 @@
+{
+  "Mappings": [
+    {
+      "CustomerName": "1NewJohn1",
+      "Items": [
+        {
+          "Name": "00T-NewShirt002",
+          "UPC": "123456789012",
+          "Quantity": "8"
+        },
+        {
+          "Name": "00T-NewShirt003",
+          "UPC": "123456789013",
+          "Quantity": "10"
+        }
+      ]
+    },
+    {
+      "CustomerName": "1NewJohn2",
+      "Items": [
+        {
+          "Name": "00T-NewShirt002",
+          "UPC": "123456789012",
+          "Quantity": "8"
+        },
+        {
+          "Name": "00T-NewShirt003",
+          "UPC": "123456789013",
+          "Quantity": "10"
+        }
+      ]
+    }
+  ]
+}

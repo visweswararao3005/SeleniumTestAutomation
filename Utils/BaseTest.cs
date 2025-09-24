@@ -1,39 +1,41 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using NUnit.Framework;
-
-namespace LoginAutomation.Tests.Utils
+namespace TestAutomation.Utils
 {
     public class BaseTest
     {
         protected IWebDriver Driver { get; private set; }
         public static string TestID { get; private set; }
+        public static string? client;
 
         [OneTimeSetUp]
         public void GlobalSetup()
         {
+            client = Environment.GetEnvironmentVariable("CLIENT_NAME") ?? "DanyaB";
+
             StatusLogger.LogRuntimeStart();
-            TestID = $"TestCaseID_{DateTime.Now:yyyyMMddHHmmss}";
+            TestID = $"{client}_{DateTime.Now:yyyyMMddHHmmss}";
         }
 
         [SetUp]
         public void SetUp()
         {
-            Logger.Info($"===== Test Started: {TestContext.CurrentContext.Test.Name} =====");
+            // 🔹 Skip tests that don't match the client
+            var categories = TestContext.CurrentContext.Test.Properties["Category"] as ICollection<object>;
+            if (categories != null && categories.Count > 0 && !categories.Any(c => c?.ToString() == client))
+            {
+                Assert.Ignore($"Skipping test for client '{string.Join(",", categories)}' because CLIENT_NAME is '{client}'");
+            }
+
+
+            Logger.Info($"===== Test Started: {TestContext.CurrentContext.Test.Name} for Client {client} =====");
             var headless = Config.GetBool("AppSettings:Headless", false);
 
             var options = new ChromeOptions();
             if (headless) options.AddArgument("--headless=new");
             options.AddArgument("--disable-gpu");
 
-            // If you installed Selenium.WebDriver.ChromeDriver, this just works.
-            // Otherwise Selenium Manager will resolve a matching driver.
             Driver = new ChromeDriver(options);
             Logger.Info("Chrome WebDriver initialized.");
         }
@@ -45,6 +47,5 @@ namespace LoginAutomation.Tests.Utils
             Driver?.Quit();
             Driver?.Dispose();
         }
-
     }
 }
