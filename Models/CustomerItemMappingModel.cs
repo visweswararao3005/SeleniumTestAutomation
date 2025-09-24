@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoginAutomation.Tests.Models
+namespace TestAutomation.Models
 {
     public class CustomerItemMappingModel
     {

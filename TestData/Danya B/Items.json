@@ -1,0 +1,214 @@
+{
+  "Items": [
+    {
+      "ItemDetails": {
+        "Item": "00T-NewShirt002",
+        "UPCCode": "123456789012",
+        "ManufacturePart": "MFG-TSHIRT-001",
+        "Inventory": "150",
+        "ItemDescription": "Men's Cotton T-Shirt - Blue",
+        "Notes": "Best seller in summer season",
+        "ItemType": "Inventory",
+        "Status": "Active",
+        "Price": "19.99",
+
+        "Taxed": "Yes",
+        "CountryOfOrigin": "India",
+        "ItemColor": "Blue",
+        "ReOrderPoint": "50",
+        "Supplier": "ABC Textiles",
+        "Brand": "CoolWear",
+        "PreferredShippingCarrier": "FedEx",
+        "PreferredShippingMethod": "FedEx Home Delivery®",
+        "USPSPackageType": "Flat Rate Envelope",
+        "PictureUrl": "https://example.com/images/tshirt001.png",
+        "Gender": "Male",
+        "Size": "L",
+        "SellerCost": "10.00",
+        "UPSSurepost": "Yes",
+
+        "ItemUM": "EA",
+        "BackOrderDate": "09/25/2025",
+        "BackOrderAvailableQTY": "100",
+        "Discontinued": "No",
+        "FulfillmentType": "Regular",
+        "ProductType": "Apparel"
+      },
+      "ItemDimensionsDetails": {
+        "ItemWeight": "0.5",
+        "ItemWeightUnits": "Kg",
+        "ItemLength": "3",
+        "ItemLengthUnits": "Inch",
+        "ItemWidth": "2",
+        "ItemWidthUnits": "Inch",
+        "ItemHeight": "2",
+        "ItemHeightUnits": "Inch",
+
+        "ItemVolume": "12",
+        "ItemVolumeUnits": "Cubic Inches"
+      },
+      "ItemPackagingDetails": {
+        "PackageLength": "32",
+        "PackageLengthUnits": "Inch",
+        "PackageWidth": "27",
+        "PackageWidthUnits": "Inch",
+        "PackageHeight": "3",
+        "PackageHeightUnits": "Inch",
+        "ItemVolume": "2400",
+        "ItemVolumeUnits": "Cubic Inches",
+        "PackageWeight": "0.6",
+        "PackageWeightUnits": "Kg",
+        "QuantityinStock": "",
+        "MinOrderQty": "5",
+        "NumberofItemsPackage": "1"
+      },
+      "WarehouseDetails": {
+        "Quantity": "150"
+      },
+
+      "ShipDetails": {
+        "ShipWeight": "2",
+        "ShipWeightUnits": "Kg",
+        "ShipLength": "3",
+        "ShipLengthUnits": "Inch",
+        "ShipWidth": "2",
+        "ShipWidthUnits": "Inch",
+        "ShipHeight": "2",
+        "ShipHeightUnits": "Inch",
+        "ShipVolume": "12",
+        "ShipVolumeUnits": "Cubic Inches"
+      },
+      "BoxDetails": {
+        "BoxWeight": "2",
+        "BoxWeightUnits": "Kg",
+        "BoxLength": "3",
+        "BoxLengthUnits": "Inch",
+        "BoxWidth": "2",
+        "BoxWidthUnits": "Inch",
+        "BoxHeight": "2",
+        "BoxHeightUnits": "Inch",
+        "BoxVolume": "12",
+        "BoxVolumeUnits": "Cubic Inches",
+        "ItemsPerBox": "1"
+      },
+      "CartonDetails": {
+        "CartonWeight": "2",
+        "CartonWeightUnits": "Kg",
+        "CartonLength": "3",
+        "CartonLengthUnits": "Inch",
+        "CartonWidth": "2",
+        "CartonWidthUnits": "Inch",
+        "CartonHeight": "2",
+        "CartonHeightUnits": "Inch",
+        "CartonVolume": "2",
+        "CartonVolumeUnits": "Cubic Inches",
+        "ItemPerCarton": "1"
+      }
+    },
+    {
+      "ItemDetails": {
+        "Item": "00T-NewShirt003",
+        "UPCCode": "123456789012",
+        "ManufacturePart": "MFG-TSHIRT-001",
+        "Inventory": "150",
+        "ItemDescription": "Men's Cotton T-Shirt - Blue",
+        "Notes": "Best seller in summer season",
+        "ItemType": "Inventory",
+        "Status": "Active",
+        "Price": "19.99",
+
+        "Taxed": "Yes",
+        "CountryOfOrigin": "India",
+        "ItemColor": "Blue",
+        "ReOrderPoint": "50",
+        "Supplier": "ABC Textiles",
+        "Brand": "CoolWear",
+        "PreferredShippingCarrier": "FedEx",
+        "PreferredShippingMethod": "FedEx Home Delivery®",
+        "USPSPackageType": "Flat Rate Envelope",
+        "PictureUrl": "https://example.com/images/tshirt001.png",
+        "Gender": "Male",
+        "Size": "L",
+        "SellerCost": "10.00",
+        "UPSSurepost": "Yes",
+
+        "ItemUM": "EA",
+        "BackOrderDate": "09/25/2025",
+        "BackOrderAvailableQTY": "100",
+        "Discontinued": "No",
+        "FulfillmentType": "Regular",
+        "ProductType": "Apparel"
+      },
+      "ItemDimensionsDetails": {
+        "ItemWeight": "0.5",
+        "ItemWeightUnits": "Kg",
+        "ItemLength": "3",
+        "ItemLengthUnits": "Inch",
+        "ItemWidth": "2",
+        "ItemWidthUnits": "Inch",
+        "ItemHeight": "2",
+        "ItemHeightUnits": "Inch",
+
+        "ItemVolume": "12",
+        "ItemVolumeUnits": "Cubic Inches"
+      },
+      "ItemPackagingDetails": {
+        "PackageLength": "32",
+        "PackageLengthUnits": "Inch",
+        "PackageWidth": "27",
+        "PackageWidthUnits": "Inch",
+        "PackageHeight": "3",
+        "PackageHeightUnits": "Inch",
+        "ItemVolume": "2400",
+        "ItemVolumeUnits": "Cubic Inches",
+        "PackageWeight": "0.6",
+        "PackageWeightUnits": "Kg",
+        "QuantityinStock": "",
+        "MinOrderQty": "5",
+        "NumberofItemsPackage": "1"
+      },
+      "WarehouseDetails": {
+        "Quantity": "150"
+      },
+
+      "ShipDetails": {
+        "ShipWeight": "2",
+        "ShipWeightUnits": "Kg",
+        "ShipLength": "3",
+        "ShipLengthUnits": "Inch",
+        "ShipWidth": "2",
+        "ShipWidthUnits": "Inch",
+        "ShipHeight": "2",
+        "ShipHeightUnits": "Inch",
+        "ShipVolume": "12",
+        "ShipVolumeUnits": "Cubic Inches"
+      },
+      "BoxDetails": {
+        "BoxWeight": "2",
+        "BoxWeightUnits": "Kg",
+        "BoxLength": "3",
+        "BoxLengthUnits": "Inch",
+        "BoxWidth": "2",
+        "BoxWidthUnits": "Inch",
+        "BoxHeight": "2",
+        "BoxHeightUnits": "Inch",
+        "BoxVolume": "12",
+        "BoxVolumeUnits": "Cubic Inches",
+        "ItemsPerBox": "1"
+      },
+      "CartonDetails": {
+        "CartonWeight": "2",
+        "CartonWeightUnits": "Kg",
+        "CartonLength": "3",
+        "CartonLengthUnits": "Inch",
+        "CartonWidth": "2",
+        "CartonWidthUnits": "Inch",
+        "CartonHeight": "2",
+        "CartonHeightUnits": "Inch",
+        "CartonVolume": "2",
+        "CartonVolumeUnits": "Cubic Inches",
+        "ItemPerCarton": "1"
+      }
+    }
+  ]
+}

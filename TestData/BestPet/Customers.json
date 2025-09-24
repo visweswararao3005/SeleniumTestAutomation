@@ -1,0 +1,102 @@
+{
+  "Customers": [
+    {
+      "CustomerDetails": {
+        "CustomerName": "1NewJohn6",
+        "CompanyName": "ABC Corp",
+        "CustomerPhoneNumber": "123-456-7890",
+        "CustomerEmailAddress": "john.doe@abccorp.com",
+        "ContactFirstName": "John",
+        "ContactLastName": "Doe",
+        "SalesRep": "Cityon Systems",
+        "CustomPackingList": "No",
+        "PaymentTerm": "Net30",
+        "FedexAccountNumber": "123456",
+        "UPSAccountNumber": "654321",
+        "PT000872": "Blank page",
+        "RetailerId": "R001",
+
+        "ShortName": "John",
+        "Status": "Active",
+        "CustomerType": "Manual",
+        "Type": "Customer"
+
+      },
+      "BillingDetails": {
+        "Name1": "John Doe",
+        "Name2": "",
+        "Phone": "123-456-7890",
+        "Email": "billing@abccorp.com",
+        "Address1": "123 Main St",
+        "Address2": "Suite 100",
+        "Country": "United States",
+        "City": "New York",
+        "State": "California",
+        "PostalCode": "10001",
+        "Notes": "Preferred billing contact"
+      },
+      "ShippingDetails": {
+        "Name1": "Jane Doe",
+        "Name2": "",
+        "Phone": "987-654-3210",
+        "Email": "shipping@abccorp.com",
+        "Address1": "456 Market St",
+        "Address2": "",
+        "Country": "United States",
+        "City": "New York",
+        "State": "California",
+        "PostalCode": "10002",
+        "Notes": "Deliver during business hours"
+      }
+    },
+    {
+      "CustomerDetails": {
+        "CustomerName": "1NewJohn7",
+        "CompanyName": "ABC Corp",
+        "CustomerPhoneNumber": "123-456-7890",
+        "CustomerEmailAddress": "john.doe@abccorp.com",
+        "ContactFirstName": "John",
+        "ContactLastName": "Doe",
+        "SalesRep": "Cityon Systems",
+        "CustomPackingList": "No",
+        "PaymentTerm": "Net30",
+        "FedexAccountNumber": "123456",
+        "UPSAccountNumber": "654321",
+        "PT000872": "Blank page",
+        "RetailerId": "R001",
+
+        "ShortName": "John",
+        "Status": "Active",
+        "CustomerType": "Manual",
+        "Type": "Customer"
+
+      },
+      "BillingDetails": {
+        "Name1": "John Doe",
+        "Name2": "",
+        "Phone": "123-456-7890",
+        "Email": "billing@abccorp.com",
+        "Address1": "123 Main St",
+        "Address2": "Suite 100",
+        "Country": "United States",
+        "City": "New York",
+        "State": "California",
+        "PostalCode": "10001",
+        "Notes": "Preferred billing contact"
+      },
+      "ShippingDetails": {
+        "Name1": "Jane Doe",
+        "Name2": "",
+        "Phone": "987-654-3210",
+        "Email": "shipping@abccorp.com",
+        "Address1": "456 Market St",
+        "Address2": "",
+        "Country": "United States",
+        "City": "New York",
+        "State": "California",
+        "PostalCode": "10002",
+        "Notes": "Deliver during business hours"
+      }
+    }
+  ]
+}

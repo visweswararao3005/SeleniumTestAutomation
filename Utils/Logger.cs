@@ -1,8 +1,6 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.IO;
+﻿using System.Data.SqlClient;
 
-namespace LoginAutomation.Tests.Utils
+namespace TestAutomation.Utils
 {
     public static class Logger
     {

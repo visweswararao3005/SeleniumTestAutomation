@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LoginAutomation.Tests.Models
+namespace TestAutomation.Models
 {
     public class OrdersModel
     {
